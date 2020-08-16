@@ -1,0 +1,41 @@
+class Restaurant
+
+# build a list (menu) of dictionaries (menu items)
+## reprocess menu in csv as menu in memory
+### decrement orders, 86 once avail == 0
+#### restock avail by method
+##### set generic allergy flag on orders and items
+
+class IceCreamStand(Restaurant)
+
+# initialize an empty list named flavors
+## reprocess (read, split) string in .txt as list in memory
+### update list, reprocess (map, join) as string, overwrite .txt
+#### reprocess list as string in print format (", "; "[2:]"); print
+
+
+
+
+NOTES
+
+preserve mealtimes as dictionary attributes rather than list objects;
+otherwise, mealtimes with common menu items risk disparities in price, avail attributes
+
+string in .txt and list in memory should both preserve the information with commas, without spaces
+
+string should only introduce spaced commas (", ") for use in print statements.
+
+r/w functions must mirror one another in formatting so as not to compound commas, spacing, brackets in .txt
+
+use .txt to test the programmer's grasp of list-string conversion: str, map, join, split, strip, splice, append
+
+it's easy to prohibit the user ('continue') from appending redundancies in a session.
+but what about a user appending a flavor which was appended to .txt in previous session(s)?
+this is why we write the update_flavors function to 
+(1) load .txt into memory as a list,
+(2) cross-reference all appendages against the list, and then
+(3) overwrite, rather than append, .txt.
+otherwise, the user could spam .txt. with redundancies across multiple sessions
+even as a function prohibits them from spamming e.g. "Boston Cream Pie" in a single session.
+update_flavors calls get_stored flavors to load .txt as a list before any potential overwrite.
+otherwise, the user might skip the load, update an empty list, overwrite the previous string in .txt.
