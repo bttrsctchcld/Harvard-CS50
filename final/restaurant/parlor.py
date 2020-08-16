@@ -1,9 +1,11 @@
 from restaurant import Restaurant
 
-class IceCreamStand(Restaurant):
+class IceCreamParlor(Restaurant):
     def __init__(self, name, cuisine_type, *flavors):
-	    super().__init__(name, cuisine_type)
-	    self.flavors = []
+        super().__init__(name, cuisine_type)
+        self.flavors = []
+        base_price = 4.99
+        self.sizes = {"small" : base_price, "medium" : base_price + 2.00, "large" : base_price + 3.00}
     def get_stored_flavors(self, *flavors):
         filename = "flavors.txt"
         with open(filename, "r") as file:
@@ -12,7 +14,7 @@ class IceCreamStand(Restaurant):
     def update_flavors(self, *flavors):
         self.get_stored_flavors(self, *flavors)
         while True:
-            flavors = (input("New flavor?")).title()
+            flavors = (input("Which flavor? ")).title()
             if flavors != "Q" and flavors not in self.flavors:
                 self.flavors.append(flavors)
             if flavors in self.flavors:
@@ -27,3 +29,12 @@ class IceCreamStand(Restaurant):
         menu = self.get_stored_flavors(*flavors)
         menu = ", ".join(map(str, menu))[2:]
         print(f"{self.name} serves {menu}.")
+    def customer_ticket(self, *flavors):
+        self.get_stored_flavors(self, *flavors)
+        customer_flavor = input("Which flavor would you like? ").title()
+        customer_size = input("Which size cone would you like? ").lower()
+        for flavor in self.flavors:
+            for size in self.sizes:
+                if customer_flavor == flavor and customer_size == size:
+                        print(f"\nThat'll be {self.sizes[customer_size]}!")
+                        print(f"\nHere's your {customer_size}, {customer_flavor} cone!\n")
