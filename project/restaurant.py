@@ -49,11 +49,9 @@ class Restaurant:
         return self.menu
     def print_menu(self):
         self.load_menu()
-        service_menu = input("Which menu would you like to see? ").lower()
+        service_menu = input("Which menu: breakfast, lunch, appetizer, entree, dessert, cafe, bar -- or the full menu? ").lower()
         for self.item in self.menu:
-            if service_menu in self.item["service"]:
-                print(f'\n\t{self.item["order"]}, {self.item["taste"]}, {self.item["price"]}')
-            elif service_menu == "full":
+            if service_menu in self.item["service"] or service_menu == "full":
                 print(f'\n\t{self.item["order"]}, {self.item["taste"]}, {self.item["price"]}')
     def restock_item(self):
         self.load_menu()
