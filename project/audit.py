@@ -22,7 +22,7 @@ while True:
 
 	    customer order
 
-	    load flavors  *  update flavors  *  describe flavors
+	    load flavors  *  update flavors  *  print flavors
 
 	    customer ticket
 
@@ -47,7 +47,7 @@ while True:
 		my_restaurant.get_stored_flavors()
 	elif general_query == "update flavors":
 		my_restaurant.update_flavors()
-	elif general_query == "describe flavors":
+	elif general_query == "print flavors":
 		my_restaurant.describe_flavors()
 	elif general_query == "customer ticket":
 		my_restaurant.customer_ticket()
