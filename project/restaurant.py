@@ -73,7 +73,7 @@ class Restaurant:
     def customer_order(self):
         self.load_menu()
         self.print_menu()
-        customer_allergy = input("Do you have any allergies? ").lower()
+        customer_allergy = input("Do you have any food allergies? ").lower()
         while True:
             order = input("What would you like to order? ").title()
             if order == "Q":
