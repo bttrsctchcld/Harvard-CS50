@@ -12,7 +12,21 @@ my_restaurant.load_menu()
 my_restaurant.get_stored_flavors()
 
 while True:
-	general_query = input("What would you like to do? ").lower()
+	general_query = input("""
+	
+	What would you like to do?
+	    
+	    load menu  *  update menu  *  print menu
+
+	    take stock  *  decrement stock  *  restock
+
+	    customer order
+
+	    load flavors  *  update flavors  *  describe flavors
+
+	    customer ticket
+
+	    """).lower()
 	if general_query == "q":
 		break
 	elif general_query == "load menu":
@@ -29,7 +43,7 @@ while True:
 		my_restaurant.restock()
 	elif general_query == "customer order":
 		my_restaurant.customer_order()
-	elif general_query == "get stored flavors":
+	elif general_query == "load flavors":
 		my_restaurant.get_stored_flavors()
 	elif general_query == "update flavors":
 		my_restaurant.update_flavors()
