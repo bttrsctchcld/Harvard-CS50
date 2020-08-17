@@ -1,12 +1,12 @@
 from restaurant import Restaurant
 
 class IceCreamParlor(Restaurant):
-    def __init__(self, name, cuisine_type, *flavors):
+    def __init__(self, name, cuisine_type, base_price, extra_price, *flavors):
         super().__init__(name, cuisine_type)
         self.flavors = []
-        base_price = 4.99
-        self.extra_price = 1.50
-        self.sizes = {"Small" : base_price, "Medium" : base_price + 2.00, "Large" : base_price + 3.00}
+        self.base_price = base_price
+        self.extra_price = extra_price
+        self.sizes = {"Small" : self.base_price, "Medium" : self.base_price + 2.00, "Large" : self.base_price + 3.00}
     def get_stored_flavors(self, *flavors):
         filename = "flavors.txt"
         with open(filename, "r") as file:
