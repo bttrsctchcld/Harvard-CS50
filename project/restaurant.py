@@ -72,7 +72,7 @@ class Restaurant:
                 break
             for self.item in self.menu:
                 if order in self.item["order"]:
-                    if customer_allergy == "yes" and bool(self.item["allergy"]) == True:
+                    if customer_allergy == "yes" and self.item["allergy"] == "True":
                         print("I'm sorry but you appear to be allergic.")
                     elif int(self.item["avail"]) > 0:
                         self.item["avail"] = (int(self.item["avail"]) - 1)

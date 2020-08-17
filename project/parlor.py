@@ -5,7 +5,7 @@ class IceCreamParlor(Restaurant):
         super().__init__(name, cuisine_type)
         self.flavors = []
         base_price = 4.99
-        self.sizes = {"small" : base_price, "medium" : base_price + 2.00, "large" : base_price + 3.00}
+        self.sizes = {"Small" : base_price, "Medium" : base_price + 2.00, "Large" : base_price + 3.00}
     def get_stored_flavors(self, *flavors):
         filename = "flavors.txt"
         with open(filename, "r") as file:
@@ -32,9 +32,9 @@ class IceCreamParlor(Restaurant):
     def customer_ticket(self, *flavors):
         self.get_stored_flavors(self, *flavors)
         customer_flavor = input("Which flavor would you like? ").title()
-        customer_size = input("Which size cone would you like? ").lower()
+        customer_size = input("Which size cone would you like? ").title()
         for flavor in self.flavors:
             for size in self.sizes:
                 if customer_flavor == flavor and customer_size == size:
                         print(f"\nThat'll be {self.sizes[customer_size]}!")
-                        print(f"\nHere's your {customer_size}, {customer_flavor} cone!\n")
+                        print(f"\nHere's Your {customer_size}, {customer_flavor} Cone!\n")
