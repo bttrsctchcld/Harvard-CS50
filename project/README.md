@@ -1,3 +1,4 @@
+for CS50:
 at the course's end, I considered the implementations which gave me the most trouble and trepidation in the problem sets: working across modules, working across functions, writing and reading across files and formats, and managing indeces in iteration.
 
 so I opened a restaurant.
