@@ -46,7 +46,6 @@ class Restaurant:
             if prompt != "yes":
                 break
         self.write_menu()
-        return self.menu
     def print_menu(self):
         self.load_menu()
         menu_query = input("Which menu: breakfast, lunch, appetizer, entree, dessert, cafe, bar -- or the full menu? ").lower()
