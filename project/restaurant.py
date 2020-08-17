@@ -58,7 +58,11 @@ class Restaurant:
         supply_query = int(input("What's the maximum stock for current inventory you want to review? "))
         low_supply = [self.item for self.item in self.menu if int(self.item["avail"]) <= supply_query]
         print(low_supply)
-    def restock_item(self):
+    def decrement_stock(self):
+        self.item["avail"] = (int(self.item["avail"]) - 1)
+        self.write_menu()
+        return self.menu
+    def restock(self):
         self.load_menu()
         stock = input("What are we restocking? ").title()
         restock = int(input("How much stock have we replenished? "))
@@ -68,6 +72,7 @@ class Restaurant:
                 self.write_menu()
     def customer_order(self):
         self.load_menu()
+        self.print_menu()
         customer_allergy = input("Do you have any allergies? ").lower()
         while True:
             order = input("What would you like to order? ").title()
@@ -78,8 +83,7 @@ class Restaurant:
                     if customer_allergy == "yes" and self.item["allergy"] == "True":
                         print("I'm sorry but you appear to be allergic.")
                     elif int(self.item["avail"]) > 0:
-                        self.item["avail"] = (int(self.item["avail"]) - 1)
+                        self.decrement_stock()
                         print("We'll have that right out to you.")
-                        self.write_menu()
                     else:
                         print("I'm sorry but we're out of that right now.")
