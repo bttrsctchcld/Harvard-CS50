@@ -49,10 +49,10 @@ class Restaurant:
         return self.menu
     def print_menu(self):
         self.load_menu()
-        service_menu = input("Which menu: breakfast, lunch, appetizer, entree, dessert, cafe, bar -- or the full menu? ").lower()
-        for self.item in self.menu:
-            if service_menu in self.item["service"] or service_menu == "full":
-                print(f'\n\t{self.item["order"]}, {self.item["taste"]}, {self.item["price"]}')
+        menu_query = input("Which menu: breakfast, lunch, appetizer, entree, dessert, cafe, bar -- or the full menu? ").lower()
+        service_menu = [self.item for self.item in self.menu if menu_query in self.item["service"] or menu_query == "full"]
+        for self.item in service_menu:
+            print(f'\n\t{self.item["order"]}, {self.item["taste"]}, {self.item["price"]}')
     def take_stock(self):
         self.load_menu()
         supply_query = int(input("What's the maximum stock for current inventory you want to review? "))
