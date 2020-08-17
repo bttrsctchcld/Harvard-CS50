@@ -1,12 +1,13 @@
 from restaurant import Restaurant
 
 class IceCreamParlor(Restaurant):
-    def __init__(self, name, cuisine_type, base_price, extra_price, *flavors):
+    def __init__(self, name, cuisine_type, base_price, extra_size, extra_scoop, *flavors):
         super().__init__(name, cuisine_type)
         self.flavors = []
         self.base_price = base_price
-        self.extra_price = extra_price
-        self.sizes = {"Small" : self.base_price, "Medium" : self.base_price + 2.00, "Large" : self.base_price + 3.00}
+        self.extra_size = extra_size
+        self.extra_scoop = extra_scoop
+        self.sizes = {"Small" : self.base_price, "Medium" : self.base_price + self.extra_size, "Large" : self.base_price + (self.extra_size * 2)}
     def get_stored_flavors(self, *flavors):
         filename = "flavors.txt"
         with open(filename, "r") as file:
@@ -39,6 +40,6 @@ class IceCreamParlor(Restaurant):
             for size in self.sizes:
                 if customer_flavor == flavor and customer_size == size:
                     if extra_query == "yes":
-                        self.sizes[customer_size] = (int(self.sizes[customer_size]) + self.extra_price)
+                        self.sizes[customer_size] = (int(self.sizes[customer_size]) + self.extra_scoop)
                     print(f"\nThat'll be ${self.sizes[customer_size]:0.2f}!")
                     print(f"\nHere's Your {customer_size}, {customer_flavor} Cone!\n")
