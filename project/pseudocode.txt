@@ -18,19 +18,14 @@ class IceCreamStand(Restaurant)
 
 NOTES
 
-load_menu reprocesses values as strings, easy to reprocess as int, float for avail, price (respectively)
+in re Restaurant, load_menu reprocesses values as strings, easy to reprocess as int, float for avail, price (respectively)
 but harder to reprocess the bool associated w allergy. since there's only one bool, and one boolean check,
 customer_order evaluates for "True" and "False" (as strings) rather than True and False (as bools).
 
-preserve mealtimes as dictionary attributes rather than list objects;
-otherwise, mealtimes with common menu items risk disparities in price, avail attributes
-
-string in .txt and list in memory should both preserve the information with commas, without spaces
-
+in re IceCream Parlor, string in .txt and list in memory should both preserve the information with commas, without spaces
 string should only introduce spaced commas (", ") for use in print statements.
 
 r/w functions must mirror one another in formatting so as not to compound commas, spacing, brackets in .txt
-
 use .txt to test the programmer's grasp of list-string conversion: str, map, join, split, strip, splice, append
 
 it's easy to prohibit the user ('continue') from appending redundancies in a session.
