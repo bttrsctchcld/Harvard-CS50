@@ -53,6 +53,11 @@ class Restaurant:
         for self.item in self.menu:
             if service_menu in self.item["service"] or service_menu == "full":
                 print(f'\n\t{self.item["order"]}, {self.item["taste"]}, {self.item["price"]}')
+    def take_stock(self):
+        self.load_menu()
+        supply_query = int(input("What's the maximum stock for current inventory you want to review? "))
+        low_supply = [self.item for self.item in self.menu if int(self.item["avail"]) <= supply_query]
+        print(low_supply)
     def restock_item(self):
         self.load_menu()
         stock = input("What are we restocking? ").title()
