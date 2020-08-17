@@ -18,6 +18,10 @@ class IceCreamStand(Restaurant)
 
 NOTES
 
+load_menu reprocesses values as strings, easy to reprocess as int, float for avail, price (respectively)
+but harder to reprocess the bool associated w allergy. since there's only one bool, and one boolean check,
+customer_order evaluates for "True" and "False" (as strings) rather than True and False (as bools).
+
 preserve mealtimes as dictionary attributes rather than list objects;
 otherwise, mealtimes with common menu items risk disparities in price, avail attributes
 
