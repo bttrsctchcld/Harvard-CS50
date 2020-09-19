@@ -7,7 +7,7 @@ class Restaurant:
         self.item = {"order" : None, "taste" : None, "price" : 0.00, "avail" : 0, "service" : None, "allergy" : False}
         self.menu = []
     def describe_restaurant(self):
-        print(f"{self.name} serves {self.cuisine_type}.")
+        print(f'{self.name} serves {self.cuisine_type}.')
     def open_restaurant(self):
         print(f"{self.name} is open for business in accordance with COVID-19 guidelines.")
     def load_menu(self):
