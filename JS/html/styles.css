@@ -1,0 +1,15 @@
+body {
+	background-color:red;
+}
+.centered {
+	text-align:center;
+}
+.large {
+	font-size:large;
+}
+.medium {
+	font-size:medium;
+}
+.small {
+	font-size:small;
+}
